@@ -11,7 +11,12 @@ const options = {
   },
 };
 
-buttonStartEl = document.querySelector('button[data-start]');
+btnStartEl = document.querySelector('button[data-start]');
+textInputEL = document.querySelector('#datetime-picker');
+spanDays = document.querySelector('span[data-days]');
+spanHours = document.querySelector('span[data-hours]');
+spanMinutes = document.querySelector('span[data-minutes]');
+spanSeconds = document.querySelector('span[data-seconds]');
 
 function convertMs(ms) {
   const second = 1000;
