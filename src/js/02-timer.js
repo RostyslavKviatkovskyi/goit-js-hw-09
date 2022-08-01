@@ -15,13 +15,13 @@ const options = {
   onChange(selectedDates) {
     const DifferenceTime = selectedDates[0].getTime() - Date.now();
     if (DifferenceTime > 0 && !isButtonStartActive) {
-      btnStartEl.setAttribute('disabled', '');
+      isButtonStartActive = true;
       checkActiveStartButton();
     }
     if (DifferenceTime <= 0) {
       window.alert('Please choose a date in the future');
       if (isButtonStartActive) {
-        btnStartEl.removeAttribute('disabled', 'true');
+        isButtonStartActive = false;
         checkActiveStartButton();
       }
     }
@@ -30,10 +30,10 @@ const options = {
 
 function checkActiveStartButton() {
   if (isButtonStartActive) {
-    btnStartEl.setAttribute('disabled');
+    btnStartEl.removeAttribute('disabled');
     return;
   } else {
-    btnStartEl.removeAttribute('disabled', 'true');
+    btnStartEl.setAttribute('disabled', 'true');
   }
 }
 
@@ -42,7 +42,7 @@ const timerOutput = document.querySelector('.timer');
 const textInputEL = document.querySelector('#datetime-picker');
 
 btnStartEl.addEventListener('click', onBtnStart);
-
+btnStartEl.setAttribute('disabled', 'true');
 flatpickr('#datetime-picker', options);
 
 function onBtnStart() {
