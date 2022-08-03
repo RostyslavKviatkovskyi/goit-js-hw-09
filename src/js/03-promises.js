@@ -8,8 +8,8 @@ formEl.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
   const elements = event.currentTarget.elements;
-  let delay = Number(elements.step.value);
-  let step = Number(elements.delay.value);
+  let delay = Number(elements.delay.value);
+  let step = Number(elements.step.value);
   let amount = Number(elements.amount.value);
 
   for (let position = 1; position <= amount; position += 1) {
